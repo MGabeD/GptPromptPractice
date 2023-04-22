@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGO = process.env.MONGO || "129.114.27.13:27017/test";
+const MONGO = process.env.MONGO || "129.114.27.13:27017/gpt";
 
 // APIs routes
 const gptRoutes = require("./routes/Gpt.js");

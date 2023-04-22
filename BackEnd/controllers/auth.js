@@ -5,7 +5,7 @@ exports.getAuth = (req, res, next) => {
     const password = req.query.password;
     User.findOne({
         $and: [
-        { $or: [{ userName: userName }, { email: userName }] },
+        { userName: userName },
         { password: password },
         ],
     }, { _id: 1 })

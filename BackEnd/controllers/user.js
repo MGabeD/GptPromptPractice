@@ -2,9 +2,11 @@ const User = require("../models/user");
 const CREATEACCOUNT = require("../utils/token")
 
 exports.createUser = (req, res, next) => {
-    if (!(req.body.key == CREATEACCOUNT)) {
+    if (!(req.body.key == CREATEACCOUNT.CREATEACCOUNT)) {
+        console.log(req.body.key);
+        console.log(CREATEACCOUNT);
         res.status(500).header('Content-Type', 'application/json').json({
-            message: err.message || "You Do Not Have Access To This Page!",
+            message: "You Do Not Have Access To This Page!",
         });
         }
     // console.log('got createUser req');
@@ -20,7 +22,6 @@ exports.createUser = (req, res, next) => {
     User.findOne({
         $or: [
             { userName: user.userName },
-            { email: user.email }
         ]
     })
     .then(foundUser => {
