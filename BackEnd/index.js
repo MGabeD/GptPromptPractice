@@ -1,9 +1,11 @@
+const TOKEN = require('./utils/token');
+
 const express = require("express");
 const openai = require("openai");
 const cors = require("cors");
 
 const apiKey = API_KEY;
-openai.apiKey = apiKey;
+openai.apiKey = TOKEN;
 
 const app = express();
 const port = 3000;
