@@ -1,42 +1,42 @@
-const TOKEN = require('./utils/token');
-
 const express = require("express");
 const openai = require("openai");
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
-const apiKey = API_KEY;
-openai.apiKey = TOKEN;
+const TOKEN = require('./utils/token');
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
+const MONGO = process.env.MONGO || "129.114.27.13:27017/test";
+
+// APIs routes
+const gptRoutes = require("./routes/Gpt.js");
+
+
+openai.apiKey = TOKEN;
 
 app.use(express.json());
 app.use(cors()); // Add this line to enable CORS
 
-app.post("/openai", async (req, res) => {
-    try {
-      const prompt = req.body.prompt;
+// Export the openai constant
+module.exports = {
+  openai,
+};
+
+main()
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+    
+async function main() {
+    // console.log("mongodb://" + MONGO);
+    await mongoose.connect("mongodb://" + MONGO);
+    // await mongoose.connect("mongodb://localhost:27017/test");
+} 
   
-      // Log the user prompt on the server screen
-      console.log(`User prompt: ${prompt}`);
-  
-      const response = await openai.Completion.create({
-        engine: "davinci-codex",
-        prompt: prompt,
-        max_tokens: 50,
-        n: 1,
-        stop: null,
-        temperature: 0.5,
-      });
-  
-      res.json(response.choices[0].text);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "An error occurred while processing the request" });
-    }
-  });
-  
-  app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
-  });
-  
+// Listen to APIs
+app.use("/api/gpt", gptRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`);
+});
