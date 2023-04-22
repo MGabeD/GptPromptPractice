@@ -1,0 +1,32 @@
+# Api Key
+/BackEnd/utils/token.js
+
+# Node modules
+BackEnd/node_modules/
+BackEnd/package-lock.json
+
+# Environment variables
+BackEnd/.env
+
+# Debugging
+BackEnd/.vscode/
+BackEnd/.nyc_output/
+BackEnd/BackEnd/coverage/
+BackEnd/*.log
+BackEnd/*.pid
+BackEnd/*.seed
+
+# Build
+BackEnd/dist/
+BackEnd/build/
+BackEnd/*.rbc
+BackEnd/*.sublime-workspace
+BackEnd/*.sublime-project
+
+# Logs and crash dumps
+BackEnd/*.log
+BackEnd/core
+
+# Operating System Files
+BackEnd/.DS_Store
+BackEnd/Thumbs.db
