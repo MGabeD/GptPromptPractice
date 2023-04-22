@@ -1,8 +1,13 @@
 In this directory add a file called token.py
 Copy this code and insert your Open.ai API key
 
-#token.js
+// TOKEN FOR OPENAI
+const TOKEN = "<Your Api Key Here>";
 
-const TOKEN = "<your token here>";
+// SECRET KEY TO ALLOW CREATING AN ACCOUNT
+const CREATEACCOUNT = "<Your Page Access Key>";
 
-module.exports = TOKEN;
+module.exports = {
+    TOKEN,
+    CREATEACCOUNT,
+  };
