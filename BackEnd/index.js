@@ -1,10 +1,11 @@
 const express = require("express");
-const openai = require("openai");
+// const openai = require("openai");
+const openai = require('./utils/openai');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const TOKEN = require('./utils/token');
+// const TOKEN = require('./utils/token');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,15 +15,15 @@ const MONGO = process.env.MONGO || "129.114.27.13:27017/test";
 const gptRoutes = require("./routes/Gpt.js");
 
 
-openai.apiKey = TOKEN;
+// openai.apiKey = TOKEN;
 
 app.use(express.json());
 app.use(cors()); // Add this line to enable CORS
 
 // Export the openai constant
-module.exports = {
-  openai,
-};
+// module.exports = {
+//   openai,
+// };
 
 main()
     .then((res) => console.log(res))

@@ -1,4 +1,4 @@
-const { openai } = require('../index');
+const openai = require('../utils/openai');
 // Alternatively: const openai = require('../index').openai;
 
 exports.gpt = async (req, res) => {

@@ -4,4 +4,4 @@ const gptController = require("../controllers/Gpt");
 
 router.post("", gptController.gpt);
 
-module.exports = gpt;
+module.exports = router;
