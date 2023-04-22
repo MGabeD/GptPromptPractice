@@ -13,6 +13,9 @@ const MONGO = process.env.MONGO || "129.114.27.13:27017/test";
 
 // APIs routes
 const gptRoutes = require("./routes/Gpt.js");
+const userRoutes = require("./routes/users.js");
+const authRoutes = require("./routes/auth.js");
+const attemptRoutes = require("./routes/attempts.js")
 
 
 // openai.apiKey = TOKEN;
@@ -37,6 +40,9 @@ async function main() {
   
 // Listen to APIs
 app.use("/api/gpt", gptRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/attempts", attemptRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${PORT}`);

@@ -4,7 +4,7 @@ const hintButton = document.getElementById("hint-btn");
 const revealButton = document.getElementById("reveal-btn");
 const targetResponseElement = document.getElementById("target-response");
 const scoreElement = document.getElementById("score");
-const backEndUrl = process.env.BACKEND || "http://localhost:3000"
+const backEndUrl = "http://localhost:3000"
 const apiUrl = backEndUrl + "/api/gpt";
 
 let currentData = [
