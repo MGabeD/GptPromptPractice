@@ -1,6 +1,6 @@
 const express = require("express");
 // const openai = require("openai");
-const openai = require('./utils/openai');
+// const openai = require('./utils/openai');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -43,6 +43,7 @@ app.use("/api/gpt", gptRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/attempts", attemptRoutes);
+// Read the README for a detailed description on how to use and what data is necessary
 
 app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${PORT}`);

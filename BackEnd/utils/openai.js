@@ -1,6 +1,6 @@
-const openai = require('openai');
+const { openai } = require('@openai/api');
 const TOKEN = require('./token');
 
-openai.apiKey = TOKEN;
+const client = new openai({ apiKey: TOKEN.TOKEN });
 
-module.exports = openai;
+module.exports = client;
