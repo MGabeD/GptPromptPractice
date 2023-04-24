@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 // const TOKEN = require('./utils/token');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const MONGO = process.env.MONGO || "129.114.27.13:27017/gpt";
 
 // APIs routes
